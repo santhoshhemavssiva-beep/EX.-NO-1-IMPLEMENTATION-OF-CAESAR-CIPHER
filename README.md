@@ -1,3 +1,6 @@
+NAME:SANTHOSH SIVAKUMAR
+
+REG NO:212225040382
 # EX. NO: 1(A) : IMPLEMENTATION OF CAESAR CIPHER
 
 ## AIM:
@@ -16,8 +19,50 @@ STEP-4: Else subtract the key from the plain text.
 STEP-5: Display the cipher text obtained above.
 
 ## PROGRAM:
+```
 
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main() {
+    char text[100];
+    int shift, i;
+
+    printf("Enter the message: ");
+    fgets(text, sizeof(text), stdin);
+
+    printf("Enter the shift value: ");
+    scanf("%d", &shift);
+
+    shift = ((shift % 26) + 26) % 26;
+
+    for (i = 0; text[i] != '\0'; i++) {
+        if (text[i] >= 'A' && text[i] <= 'Z') {
+            text[i] = (text[i] - 'A' + shift) % 26 + 'A';
+        } else if (text[i] >= 'a' && text[i] <= 'z') {
+            text[i] = (text[i] - 'a' + shift) % 26 + 'a';
+        }
+    }
+
+    printf("Encrypted message: %s", text);
+
+    for (i = 0; text[i] != '\0'; i++) {
+        if (text[i] >= 'A' && text[i] <= 'Z') {
+            text[i] = (text[i] - 'A' - shift + 26) % 26 + 'A';
+        } else if (text[i] >= 'a' && text[i] <= 'z') {
+            text[i] = (text[i] - 'a' - shift + 26) % 26 + 'a';
+        }
+    }
+
+    printf("Decrypted message: %s", text);
+
+    return 0;
+}
+```
 ## OUTPUT:
+
+<img width="1367" height="782" alt="image" src="https://github.com/user-attachments/assets/faef89ab-2ae7-4559-b660-a995dcb4da44" />
 
 ## RESULT :
  Thus the implementation of ceasar cipher had been executed successfully.
